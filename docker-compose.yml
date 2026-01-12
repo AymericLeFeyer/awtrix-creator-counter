@@ -9,7 +9,7 @@ services:
     working_dir: /app
     environment:
       - PORT=4444
-      - YOUTUBE_MONEY_EXPORTER_URL={YOUTUBE_MONEY_EXPORTER_URL}
-      - AWTRIX_URL={AWTRIX_URL}
+      - YOUTUBE_MONEY_EXPORTER_URL=${YOUTUBE_MONEY_EXPORTER_URL}
+      - AWTRIX_URL=${AWTRIX_URL}
     restart: always
     command: npm run start
