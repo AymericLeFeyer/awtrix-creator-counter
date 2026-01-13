@@ -5,6 +5,7 @@ const awtrixService = require('./features/awtrix/service');
 router.post('/refresh', async (req, res) => {
     try {
         await awtrixService.clear();
+        await youtubeMoneyExporterService.refreshData();
         await youtubeMoneyExporterService.fetchYouTubeMoneyExporterData();
 
         res.json("OK");

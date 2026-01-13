@@ -5,7 +5,8 @@ exports.fetchYouTubeMoneyExporterData = async () => {
     const data = await datasource.fetchYouTubeMoneyExporterData();
     const result = {
         youtube_subscribers: data.youtube.total.subscribers,
-        instagram_followers: data.instagram.followers,
+        instagram_followers: data.instagram?.followers || "???",
+        discord_members: data.discord.members
     }
 
     console.log(result)
@@ -20,5 +21,14 @@ exports.fetchYouTubeMoneyExporterData = async () => {
         8649
     );
 
+    await awtrixService.sendApp('discord', 
+        result.discord_members.toString(),
+        25435
+    );
+
     return result;
 }
+
+exports.refreshData = async () => {
+    return await datasource.refreshData();
+}   

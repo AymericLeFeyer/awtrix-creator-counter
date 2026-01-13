@@ -26,4 +26,28 @@ router.post("/on", async (req, res) => {
   }
 });
 
+router.post("/next", async (req, res) => {
+  try {
+    await awtrixService.nextApp();
+    res.json("OK");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({  
+      error: "Error.",
+    });
+  } 
+});
+
+router.post("/previous", async (req, res) => {
+  try {
+    await awtrixService.previousApp();
+    res.json("OK");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Error.",
+    });
+  }
+});
+
 module.exports = router;

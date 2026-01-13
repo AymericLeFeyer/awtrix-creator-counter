@@ -20,3 +20,11 @@ exports.turnOff = async () => {
 exports.turnOn = async () => {
     return await datasource.setPowerState(true);
 }
+
+exports.nextApp = async () => {
+    return await datasource.switchApp(1);
+}
+
+exports.previousApp = async () => {
+    return await datasource.switchApp(-1);
+}
