@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 4444;
 
 // Middleware pour lire le JSON
 app.use(express.json());
+app.use('/api/', require('./src/controller'));
+app.use('/api/awtrix', require('./src/features/awtrix/controller'));
 
 // --- CRONS ---
 crons.startAllCrons();

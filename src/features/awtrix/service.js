@@ -12,3 +12,11 @@ exports.sendApp = async (appname, text, icon) => {
 exports.clear = async () => {
     return await datasource.sendApp("", null);
 }
+
+exports.turnOff = async () => {
+    return await datasource.setPowerState(false);
+}
+
+exports.turnOn = async () => {
+    return await datasource.setPowerState(true);
+}
