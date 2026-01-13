@@ -8,3 +8,7 @@ exports.sendApp = async (appname, text, icon) => {
     };
     return await datasource.sendApp(appname, body);
 }
+
+exports.clear = async () => {
+    return await datasource.sendApp("", null);
+}

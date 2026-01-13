@@ -1,11 +1,13 @@
 const cron = require('node-cron');
 const youtubeMoneyExporterService = require('./features/youtube-money-exporter/service');
+const awtrixService = require('./features/awtrix/service');
 
-exports.startAllCrons = () => {
+exports.startAllCrons = async () => {
     // First launch
-    youtubeMoneyExporterService.fetchYouTubeMoneyExporterData();
+    await awtrixService.clear();
+    await youtubeMoneyExporterService.fetchYouTubeMoneyExporterData();
 
-    cron.schedule('0 * * * *', () => {
+    cron.schedule('5 * * * *', () => {
         youtubeMoneyExporterService.fetchYouTubeMoneyExporterData();
     });
 }    
