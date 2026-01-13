@@ -16,4 +16,8 @@ router.post('/refresh', async (req, res) => {
     }
 });
 
+router.get('/ping', (req, res) => {
+    res.json('pong');
+});
+
 module.exports = router;
