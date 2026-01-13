@@ -21,6 +21,11 @@ exports.turnOn = async () => {
     return await datasource.setPowerState(true);
 }
 
+exports.turnToggle = async () => {
+    const stats = await datasource.getStats();
+    return await datasource.setPowerState(!stats.data.matrix);
+}
+
 exports.nextApp = async () => {
     return await datasource.switchApp(1);
 }

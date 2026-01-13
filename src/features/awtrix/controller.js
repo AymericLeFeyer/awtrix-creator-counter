@@ -26,6 +26,18 @@ router.post("/on", async (req, res) => {
   }
 });
 
+router.post("/toggle", async (req, res) => {
+  try {
+    await awtrixService.turnToggle();
+    res.json("OK");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Error.",
+    });
+  }
+});
+
 router.post("/next", async (req, res) => {
   try {
     await awtrixService.nextApp();
