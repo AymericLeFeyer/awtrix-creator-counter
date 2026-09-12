@@ -9,7 +9,8 @@ services:
     working_dir: /app
     environment:
       - PORT=4444
-      - YOUTUBE_MONEY_EXPORTER_URL=${YOUTUBE_MONEY_EXPORTER_URL}
+      - AYLABS_CREATOR_STUDIO_URL=${AYLABS_CREATOR_STUDIO_URL}
+      - AYLABS_CREATOR_STUDIO_KEY=${AYLABS_CREATOR_STUDIO_KEY}
       - AWTRIX_URL=${AWTRIX_URL}
     restart: always
     command: npm run start
